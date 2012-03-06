@@ -984,7 +984,8 @@ require_once('include/EditView/EditView2.php');
                                                    {
                                                       foreach($GLOBALS['app_list_strings']['salutation_dom'] as $salutation)
                                                       {
-                                                         if(!empty($salutation) && strpos($field_value, $salutation) == 0)
+                                                         //Fixed by Letrium ldt. (bug number 50990)
+                                                         if(!empty($salutation) && strpos($field_value, $salutation) === true && strpos($field_value, $salutation) == 0)
                                                          {
                                                             $field_value = trim(substr($field_value, strlen($salutation)));
                                                             break;
