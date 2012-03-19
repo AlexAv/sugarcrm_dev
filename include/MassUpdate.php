@@ -717,6 +717,7 @@ EOHTML;
 	  * @param field_name name of the field
 	  */
 	function addInputType($displayname, $varname){
+		$displayname = addslashes($displayname);
 		$html = <<<EOQ
 	<td scope="row" width="20%">$displayname</td>
 	<td class='dataField' width="30%"><input type="text" name='$varname' size="12" id='{$varname}' maxlength='10' value=""></td>
@@ -1025,6 +1026,7 @@ EOQ;
 	  */
 	function addDate($displayname, $varname){
 		global $timedate;
+		$displayname = addslashes($displayname);
 		$userformat = '('. $timedate->get_user_date_format().')';
 		$cal_dateformat = $timedate->get_cal_date_format();
 		global $app_strings, $app_list_strings, $theme;
